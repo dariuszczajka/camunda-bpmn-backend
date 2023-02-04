@@ -15,13 +15,13 @@ offerRoutes.post( "/lendCar", async (req, res) => {
     await carModel.updateOne({_id: req.body.carID}, {available:false});
     //sendMail();
     console.log('car ' + req.body.carID + ' has been lended');
-    res.header("Access-Control-Allow-Origin", "*");
+    res.status(200).json({});
 });
 
 offerRoutes.post( "/returnCar", async (req, res) => {
     await carModel.updateOne({_id: req.body.carID}, {available:true});
     console.log('car ' + req.body.carID + ' has been returned');
-    res.header("Access-Control-Allow-Origin", "*");
+    res.status(200).json({});
 });
 
 /*
